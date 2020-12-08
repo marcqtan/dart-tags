@@ -68,6 +68,11 @@ class ID3V2Reader extends Reader {
       final fr = bytes.sublist(offset);
 
       final frame = ff.getFrame(fr);
+
+      if(frame == null) {
+        break;
+      }
+      
       final m = frame.decode(fr);
 
       if (m?.key != null && m?.value != null) {
